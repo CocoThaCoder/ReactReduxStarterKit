@@ -5,8 +5,9 @@ import Hammer from 'react-hammerjs';
 const Main = (props) => {
 
 	return (
-		<div>
-			<h1 style={{textAlign: 'center'}}>REACT STARTER KIT</h1>
+		<div className="app-container">
+			<h1 className="app-container-title">REACT STARTER KIT</h1>
+			<img className="app-container-image" src="./images/minime.png" alt="minime" />
 			{props.children}
 		</div>
 		);
