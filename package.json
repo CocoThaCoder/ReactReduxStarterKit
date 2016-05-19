@@ -1,11 +1,12 @@
 {
-  "name": "FoxTalesTaleTracker",
+  "name": "redux-simple-starter",
   "version": "1.0.0",
-  "description": "Web Application for FoxTales",
+  "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
-  "repository": "",
+  "repository": "git@github.com:CocoBeezy/ReactStarterKit.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "gulp serve",
+    "build": "gulp",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -18,6 +19,7 @@
     "babel-preset-react": "^6.1.18",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
+    "gulp-load-plugins": "^1.2.2",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
@@ -26,15 +28,32 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "axios": "^0.9.1",
     "babel-preset-stage-1": "^6.1.18",
+    "browser-sync": "^2.12.8",
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.2",
     "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.0.0",
     "gulp-html-replace": "^1.5.5",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.2.0",
+    "gulp-size": "^1.2.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.1.0",
+    "gulp-useref": "^3.0.0",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "history": "^2.0.1",
     "lodash": "^3.10.1",
+    "main-bower-files": "^2.13.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-hammerjs": "^0.4.5",
@@ -42,6 +61,7 @@
     "react-router": "^2.0.1",
     "react-screen-orientation": "0.0.2",
     "redux": "^3.0.4",
-    "uglify": "^0.1.5"
+    "uglify": "^0.1.5",
+    "webpack-stream": "^3.2.0"
   }
 }
