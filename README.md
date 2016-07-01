@@ -9,5 +9,5 @@ A React Starter Kit Scaffold that uses webpack configurations without gulp
 
 - This project is using the loaders (sass, css, and style loaders) to control style. 
 In order to style pages you can require a sass file in the component and it will 
-receive the styling of that particular sass file. An example of this can be seen in the main.tsx
+receive the styling of that particular sass file. An example of this can be seen in the main.jsx
 react component.
