@@ -5,8 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:CocoBeezy/ReactStarterKit.git",
   "scripts": {
-    "start": "gulp serve",
-    "build": "gulp",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "webpack",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -19,11 +19,14 @@
     "babel-preset-react": "^6.1.18",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
+    "css-loader": "^0.23.1",
     "gulp-load-plugins": "^1.2.2",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
