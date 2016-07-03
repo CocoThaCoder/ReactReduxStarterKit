@@ -24,11 +24,11 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
   ],
   devServer: {
     historyApiFallback: true,
