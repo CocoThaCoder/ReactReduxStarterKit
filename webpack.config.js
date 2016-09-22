@@ -3,11 +3,11 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './src/jsx/app.jsx'
+    './src/components/app.jsx'
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/public',
     filename: 'bundle.js'
   },
   module: {
@@ -16,9 +16,18 @@ module.exports = {
       loader: 'babel'
     },
     {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      }]
+      test: /\.scss$/,
+      loaders: ['style', 'css', 'sass']
+    },
+    {
+        test: /\.jpg$|\.gif$|.png$/i,
+        loader: "file-loader?name=./images/[name].[ext]"
+      },
+      {
+        test: /\.otf$|\.ttf$/i,
+        loader: "file-loader?name=./fonts/[name].[ext]"
+      }
+    ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
