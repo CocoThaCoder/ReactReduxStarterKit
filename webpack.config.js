@@ -3,6 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './src/components/app.jsx'
   ],
   output: {
@@ -11,15 +13,21 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['react-hot'],
+        include: path.join(__dirname, 'src')
+      },
+      {
       exclude: /node_modules/,
       loader: 'babel'
-    },
-    {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
-    },
-    {
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      },
+      {
         test: /\.jpg$|\.gif$|.png$/i,
         loader: "file-loader?name=./images/[name].[ext]"
       },
@@ -33,6 +41,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin()
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false
