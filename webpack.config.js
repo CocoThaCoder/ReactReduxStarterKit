@@ -8,8 +8,8 @@ module.exports = {
     './src/components/app.jsx'
   ],
   output: {
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/public',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist',
     filename: 'bundle.js'
   },
   module: {
@@ -20,8 +20,8 @@ module.exports = {
         include: path.join(__dirname, 'src')
       },
       {
-      exclude: /node_modules/,
-      loader: 'babel'
+        exclude: /node_modules/,
+        loader: 'babel'
       },
       {
         test: /\.scss$/,
