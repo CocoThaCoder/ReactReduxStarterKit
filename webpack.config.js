@@ -3,8 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     './src/components/app.jsx'
   ],
   output: {
@@ -16,7 +16,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot'],
+        loaders: ['react-hot-loader/webpack'],
         include: path.join(__dirname, 'src')
       },
       {
@@ -41,7 +41,9 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false
