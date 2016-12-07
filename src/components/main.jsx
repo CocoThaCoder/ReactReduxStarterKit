@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Hammer from 'react-hammerjs';
-import ReactInterval from 'react-interval';
 
 // Styles
 require('../../public/styles/index.scss');
