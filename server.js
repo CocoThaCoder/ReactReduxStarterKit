@@ -10,7 +10,7 @@ app.use('/dist', express.static(__dirname + '/dist'));
 // handle ever other route with index.html, which will contain a
 // script tag to your application's JavaScript file.
 app.get('*', function(req, res, next) {
-  res.sendFile(path.resolve(__dirname, '/dist/index.html'));
+  res.sendFile(path.resolve(__dirname, 'dist/index.html'));
 });
 
 app.listen(port);
