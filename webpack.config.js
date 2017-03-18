@@ -3,8 +3,6 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
     './src/components/app.jsx'
   ],
   output: {
@@ -13,43 +11,26 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
+        use: 'babel-loader',
         test: /\.jsx?$/,
-        loaders: ['react-hot-loader/webpack'],
-        include: path.join(__dirname, 'src')
+        exclude: /node_modules/
       },
       {
-        exclude: /node_modules/,
-        loader: 'babel'
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        use: "file-loader?name=./images/[name].[ext]",
+        test: /\.jpg$|\.gif$|.png$/i
       },
       {
-        test: /\.jpg$|\.gif$|.png$/i,
-        loader: "file-loader?name=./images/[name].[ext]"
-      },
-      {
-        test: /\.otf$|\.ttf$/i,
-        loader: "file-loader?name=./fonts/[name].[ext]"
+        use: "file-loader?name=./fonts/[name].[ext]",
+        test: /\.otf$|\.ttf$/i
       }
     ]
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
-  ],
   devServer: {
     historyApiFallback: true,
     contentBase: './'

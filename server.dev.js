@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var express = require('express');
 var devMiddleware = require('webpack-dev-middleware');
-var hotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
 
 var app = express();
@@ -17,7 +16,6 @@ app.use(devMiddleware(compiler, {
 // server static assets normally
 app.use('/public', express.static(__dirname + '/public'));
 
-app.use(hotMiddleware(compiler));
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
