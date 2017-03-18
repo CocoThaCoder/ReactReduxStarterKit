@@ -18,7 +18,7 @@ app.use('/public', express.static(__dirname + '/public'));
 
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 app.listen(8080, function (err) {

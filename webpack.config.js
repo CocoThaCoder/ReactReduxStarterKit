@@ -1,14 +1,21 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const VENDOR_LIBS = [
+  'react', 'lodash', 'react-dom', 'redux', 'react-redux',
+  'redux-thunk', 'react-router', 'axios', 'immutable'
+  ];
 
 module.exports = {
-  entry: [
-    './src/components/app.js'
-  ],
+  entry: {
+    bundle: './src/components/app.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist',
-    filename: 'bundle.js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -31,6 +38,14 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     contentBase: './'
