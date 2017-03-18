@@ -4,7 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'react', 'lodash', 'react-dom', 'redux', 'react-redux',
-  'redux-thunk', 'react-router', 'axios', 'immutable'
+  'redux-thunk', 'react-router', 'axios', 'immutable',
+  'react-router-dom'
   ];
 
 module.exports = {
@@ -13,8 +14,7 @@ module.exports = {
     vendor: VENDOR_LIBS
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist',
+    path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
   },
   module: {
@@ -45,9 +45,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })
-  ],
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './'
-  }
+  ]
 };
