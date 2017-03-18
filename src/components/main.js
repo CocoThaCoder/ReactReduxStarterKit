@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Hammer from 'react-hammerjs';
 
 // Styles
-require('../../public/styles/index.scss');
+import '../../public/styles/index.scss';
 
 class Main extends Component {
 	constructor(props) {
