@@ -2,15 +2,15 @@ var path = require('path');
 var webpack = require('webpack');
 var express = require('express');
 var devMiddleware = require('webpack-dev-middleware');
-var config = require('./webpack.config');
+var config = require('./webpack.config.dev');
 
 var app = express();
 var compiler = webpack(config);
 
 app.use(devMiddleware(compiler, {
-  publicPath: config.output.publicPath,
   historyApiFallback: true,
-  stats: { colors: true }
+  stats: { colors: true },
+  contentBase: './dist'
 }));
 
 // server static assets normally

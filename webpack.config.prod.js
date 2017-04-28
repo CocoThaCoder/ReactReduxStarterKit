@@ -10,12 +10,13 @@ const VENDOR_LIBS = [
 
 module.exports = {
   entry: {
-    bundle: './src/components/app.js',
+    bundle: './src/components/app.jsx',
     vendor: VENDOR_LIBS
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
+    publicPath: '/dist/'
   },
   module: {
     rules: [
@@ -38,12 +39,21 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 };

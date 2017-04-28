@@ -6,7 +6,7 @@
   "repository": "git@github.com:CocoBeezy/ReactStarterKit.git",
   "scripts": {
     "start": "node server.dev.js",
-    "build": "npm run clean && webpack --progress --colors",
+    "build": "npm run clean && webpack --config webpack.config.prod.js --progress --colors",
     "deploy": "pm2 start server.js",
     "clean": "rimraf dist",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
