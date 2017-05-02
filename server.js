@@ -4,8 +4,8 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // server static assets normally
-app.use('/public', express.static(__dirname + '/public'));
-app.use('/dist', express.static(__dirname + '/dist'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 // handle ever other route with index.html, which will contain a
 // script tag to your application's JavaScript file.

@@ -10,7 +10,7 @@ var compiler = webpack(config);
 app.use(devMiddleware(compiler, config.devServer));
 
 // server static assets normally
-app.use('/public', express.static(__dirname + '/public'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 app.get('*', function (req, res) {
