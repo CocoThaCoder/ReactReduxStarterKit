@@ -19,7 +19,20 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
+    publicPath: '/dist/'
+  },
+   devServer: {
+    hot: true,
+    inline: true,
+    contentBase: path.join(__dirname + 'dist'),
+    publicPath: '/dist/',
+    historyApiFallback: true,
+    stats: {
+      colors: true,
+      chunks: false,
+      'errors-only': true
+    }
   },
   module: {
     rules: [
