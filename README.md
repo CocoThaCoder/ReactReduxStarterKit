@@ -1,6 +1,10 @@
-# ReactStarterKit
-A React Starter Kit Scaffold that uses webpack configurations without gulp
-
+# ReactReduxStarterKit
+A React Starter Kit Scaffold that uses webpack configurations. There are multiple branches of this repo
+with the following options:
+- `master` Simple React Redux Starter Kit
+- `react-hot-loader` - React Redux w/ React Hot Loader
+- `complete-dev-tools` - React Redux w/ React Hot Loader and React Dev Tools
+- `typescript` - A Simple React Redux Starter Kit in Typescript
 
 ### Instructions
 
