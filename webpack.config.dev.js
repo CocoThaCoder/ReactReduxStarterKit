@@ -9,7 +9,7 @@ const VENDOR_LIBS = [
   ];
 
 const BUNDLE = [
-  './src/components/app.jsx'
+  './src/components/App.jsx'
 ];
 
 module.exports = {

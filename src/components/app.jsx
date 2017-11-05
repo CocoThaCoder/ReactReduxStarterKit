@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 // Components
-import Main from './main';
+import Main from './Main';
 
 //import routes and reducers
 import rootReducer from '../reducers';

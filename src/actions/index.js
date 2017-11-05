@@ -1,4 +1,4 @@
-import actionTypes from './types';
+import actionTypes from './Types';
 
 export function increment() {
   return {
