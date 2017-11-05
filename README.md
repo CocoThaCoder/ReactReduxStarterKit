@@ -8,6 +8,9 @@ with the following options:
 
 ### Instructions
 
+##### Test
+1. Run `npm test` to run test suites using Jest
+
 ##### Development
 1. Run `npm install` to install required node modules
 2. Run `npm start` to run application on localhost:8080
