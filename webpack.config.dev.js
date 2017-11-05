@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const VENDOR_LIBS = [
   'react', 'lodash', 'react-dom', 'redux', 'react-redux',
   'redux-thunk', 'react-router', 'axios', 'immutable',
-  'react-router-dom', 'material-ui', 'material-ui-icons'
+  'react-router-dom'
   ];
 
 const BUNDLE = [
