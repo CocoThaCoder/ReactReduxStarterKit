@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+
+// Create material-ui theme
+const theme = createMuiTheme();
 
 // Components
 import Main from './Main';
@@ -16,9 +20,11 @@ const store = createStoreWithMiddleware(rootReducer);
 
 ReactDOM.render(
 	<Provider store={ store }>
-		<Router>
-			<Route path="/" component={Main} />
-		</Router>
+		<MuiThemeProvider theme={theme}>
+			<Router>
+				<Route path="/" component={Main} />
+			</Router>
+		</MuiThemeProvider>
 	</Provider>
 	, document.querySelector('.render-target')
 );
