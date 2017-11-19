@@ -3,11 +3,12 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { Map } from 'immutable';
 import ConnectedMain, { Main } from '../components/main';
 
 describe('Main Module Tests Shallow Approach', () => {
 
-  const initialState = { counter: { count: 0 } };
+  const initialState = { counter: Map({ count: 0 }) };
   const mockStore = configureStore();
   let store, wrapper;
 
@@ -29,7 +30,7 @@ describe('Main Module Tests Shallow Approach', () => {
 
 describe('Main Module Tests Mount Approach', () => {
 
-  const initialState = { counter: { count: 0 } };
+  const initialState = { counter: Map({ count: 0 }) };
   const mockStore = configureStore();
   let store, wrapper;
 

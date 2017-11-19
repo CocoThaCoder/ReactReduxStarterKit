@@ -16,9 +16,9 @@
   "license": "ISC",
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "<rootDir>/src/SetupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/scripts/SetupTests.js",
     "moduleNameMapper": {
-      "\\.scss$": "<rootDir>/src/SCSSStub.js"
+      "\\.scss$": "<rootDir>/src/scripts/SCSSStub.js"
     }
   },
   "devDependencies": {
