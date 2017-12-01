@@ -19,12 +19,12 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
 ReactDOM.render(
-	<Provider store={ store }>
-		<MuiThemeProvider theme={theme}>
-			<Router>
-				<Route path="/" component={Main} />
-			</Router>
-		</MuiThemeProvider>
-	</Provider>
-	, document.querySelector('.render-target')
+  <Provider store={ store }>
+    <MuiThemeProvider theme={theme}>
+      <Router>
+        <Route path="/" component={Main} />
+      </Router>
+    </MuiThemeProvider>
+  </Provider>
+  , document.querySelector('.render-target')
 );

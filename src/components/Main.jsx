@@ -12,47 +12,47 @@ import { red } from 'material-ui/colors';
 import '../styles/index.scss';
 
 class Main extends Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		return (
-			<div className="app-container">
-				<AppBar position="static" color="accent" style={styles.red}>
-					<Toolbar>
-						<Typography type="title" color="inherit" style={{ flex: 1 }}>
-							REACT STARTER KIT!
-						</Typography>
-					</Toolbar>
-				</AppBar>
-				<img className="app-container-image" src="/public/images/minime.png" alt="minime" />
-				<div className="app-counter">{ this.props.counter.get('count') }</div>
-				<Button
-					raised
-					style={styles.red}
-					className="app-button"
-					onClick={this.props.increment}
-				>
-					Increment Me!
-				</Button>
-			</div>
-			);
-	}
+  render() {
+    return (
+      <div className="app-container">
+        <AppBar position="static" color="accent" style={styles.red}>
+          <Toolbar>
+            <Typography type="title" color="inherit" style={{ flex: 1 }}>
+              REACT STARTER KIT!
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <img className="app-container-image" src="/public/images/minime.png" alt="minime" />
+        <div className="app-counter">{ this.props.counter.get('count') }</div>
+        <Button
+          raised
+          style={styles.red}
+          className="app-button"
+          onClick={this.props.increment}
+        >
+          Increment Me!
+        </Button>
+      </div>
+      );
+  }
 
 }
 
 const mapStateToProps = (state) => {
-	return {
-		counter: state.counter
-	};
+  return {
+    counter: state.counter
+  };
 }
 
 export default connect(mapStateToProps, { increment })(Main);
 
 const styles = {
-	red: {
-		backgroundColor: red[700],
-		color: '#fff'
-	}
+  red: {
+    backgroundColor: red[700],
+    color: '#fff'
+  }
 };
