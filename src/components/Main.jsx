@@ -27,7 +27,7 @@ class Main extends Component {
 					</Toolbar>
 				</AppBar>
 				<img className="app-container-image" src="/public/images/minime.png" alt="minime" />
-				<div className="app-counter">{ this.props.counter.count }</div>
+				<div className="app-counter">{ this.props.counter.get('count') }</div>
 				<Button
 					raised
 					style={styles.red}
