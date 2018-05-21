@@ -2,7 +2,6 @@
 A React Starter Kit Scaffold that uses webpack configurations. There are multiple branches of this repo
 with the following options:
 - `master`- Simple React Redux Starter Kit
-- `complete-dev-tools` - React Redux w/ React Hot Loader and React Dev Tools
 - `typescript` - A Simple React Redux Starter Kit in Typescript
 
 ### Instructions
@@ -20,10 +19,12 @@ with the following options:
 
 [Here][1] is a link to the pm2 documentation for managing the pm2 process that is created from step 3.
 
-[1]: https://github.com/Unitech/pm2
+##### Styles Components
+This project uses styled components for styling. [Here][2] is a link to the documentation.
 
-##### Style Loaders
-- This project is using the loaders (sass, css, and style loaders) to control style.
-In order to style pages you can import a sass file in the component and it will
-receive the styling of that particular sass file. An example of this can be seen in the main.jsx
-react component.
+##### Eslint + Prettier
+This projects is setup with eslint and prettier configured out of the box. It also uses husky to run prettier on any changed files using the precommit hook.
+
+
+[1]: https://github.com/Unitech/pm2
+[2]: https://www.styled-components.com/docs

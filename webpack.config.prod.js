@@ -2,58 +2,55 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = [
-  'react', 'lodash', 'react-dom', 'redux', 'react-redux',
-  'redux-thunk', 'react-router', 'axios', 'immutable',
-  'react-router-dom'
-  ];
+const BUNDLE = ['babel-polyfill', './src/components/App.jsx'];
 
 module.exports = {
   entry: {
-    bundle: './src/components/App.jsx',
-    vendor: VENDOR_LIBS
+    index: BUNDLE,
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
-    publicPath: '/dist/'
+    filename: '[name].bundle.[chunkhash].js',
+    chunkFilename: '[name].bundle.[chunkhash].js',
+    publicPath: '/dist/',
   },
+  mode: 'production',
   module: {
     rules: [
       {
         use: 'babel-loader',
         test: /\.jsx?$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        test: /\.scss$/
+        test: /\.scss$/,
       },
       {
-        use: "file-loader?name=./images/[name].[ext]",
-        test: /\.jpg$|\.gif$|.png$/i
+        use: 'file-loader?name=./images/[name].[ext]',
+        test: /\.jpg$|\.gif$|.png$/i,
       },
       {
-        use: "file-loader?name=./fonts/[name].[ext]",
-        test: /\.otf$|\.ttf$/i
-      }
-    ]
+        use: 'file-loader?name=./fonts/[name].[ext]',
+        test: /\.otf$|\.ttf$/i,
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      chunks: 'all',
+    },
+    runtimeChunk: {
+      name: entrypoint => `runtimechunk-${entrypoint.name}`,
+    },
+  },
 };

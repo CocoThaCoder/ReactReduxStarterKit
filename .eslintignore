@@ -1,0 +1,18 @@
+# node_modules and bower_components are ignored by default.
+
+# Ignore dev libraries.
+
+# Test directories to ignore.
+/src/__test__
+*.test.js
+
+# Database directories.
+
+# Build directories
+/dist
+
+# Misc directories.
+/.settings
+/cache
+/server/credentials
+/src/trash

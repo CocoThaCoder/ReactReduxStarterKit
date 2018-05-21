@@ -1,31 +1,31 @@
-var path = require('path');
-var webpack = require('webpack');
-var express = require('express');
-var devMiddleware = require('webpack-dev-middleware');
-var config = require('./webpack.config.dev');
+const path = require('path');
+const webpack = require('webpack');
+const express = require('express');
+const devMiddleware = require('webpack-dev-middleware');
+const config = require('./webpack.config.dev');
+const port = process.env.PORT || 8080;
 
-var app = express();
-var compiler = webpack(config);
+const app = express();
+const compiler = webpack(config);
 
 app.use(devMiddleware(compiler, config.devServer));
 
 // server static assets normally
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-
-app.get('*', function (req, res) {
-  var filename = path.join(compiler.outputPath,'index.html');
-    compiler.outputFileSystem.readFile(filename, function(err, result){
-      if (err) {
-        return next(err);
-      }
-      res.set('content-type','text/html');
-      res.send(result);
-      res.end();
-    });
+app.get('*', (req, res, next) => {
+  const filename = path.join(compiler.outputPath, 'index.html');
+  compiler.outputFileSystem.readFile(filename, (err, result) => {
+    if (err) {
+      return next(err);
+    }
+    res.set('content-type', 'text/html');
+    res.send(result);
+    res.end();
+  });
 });
 
-app.listen(8080, function (err) {
+app.listen(port, err => {
   if (err) {
     return console.error(err);
   }

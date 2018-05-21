@@ -7,16 +7,13 @@ import { Map } from 'immutable';
 import ConnectedMain, { Main } from '../components/main';
 
 describe('Main Module Tests Shallow Approach', () => {
-
   const initialState = { counter: Map({ count: 0 }) };
   const mockStore = configureStore();
   let store, wrapper;
 
   beforeEach(() => {
     store = mockStore(initialState);
-    wrapper = shallow(
-      <ConnectedMain store={store}></ConnectedMain>
-    );
+    wrapper = shallow(<ConnectedMain store={store} />);
   });
 
   test('Render the connected component', () => {
@@ -29,7 +26,6 @@ describe('Main Module Tests Shallow Approach', () => {
 });
 
 describe('Main Module Tests Mount Approach', () => {
-
   const initialState = { counter: Map({ count: 0 }) };
   const mockStore = configureStore();
   let store, wrapper;
@@ -37,7 +33,9 @@ describe('Main Module Tests Mount Approach', () => {
   beforeEach(() => {
     store = mockStore(initialState);
     wrapper = mount(
-      <Provider store={store}><ConnectedMain /></Provider>
+      <Provider store={store}>
+        <ConnectedMain />
+      </Provider>
     );
   });
 
