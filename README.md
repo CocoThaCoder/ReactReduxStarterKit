@@ -25,6 +25,15 @@ This project uses styled components for styling. [Here][2] is a link to the docu
 ##### Eslint + Prettier
 This projects is setup with eslint and prettier configured out of the box. It also uses husky to run prettier on any changed files using the precommit hook.
 
+##### Redux DevTools
+Redux DevTools is configured in this starter it. You can install the chrome extension [here][3].
+
+##### Redux Logger
+Redux Logger is also used by default in development mode. It can be viewed in the browser console tab whenever an action occurs.
+
+##### Side Effects
+A side effect library for handling asynchronous calls is not included in this starter kit. You can use redux-thunk, redux-saga, redux-observable, or redux-cycles to name a few.
 
 [1]: https://github.com/Unitech/pm2
 [2]: https://www.styled-components.com/docs
+[3]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en

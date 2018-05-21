@@ -16,14 +16,12 @@ const theme = {
   main: 'red',
 };
 
-// import routes and reducers
-import rootReducer from '../reducers';
-
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(rootReducer);
+// Setup Store and History
+import configureStoreAndHistory from './Store';
+const config = configureStoreAndHistory({});
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider {...config}>
     <ThemeProvider theme={theme}>
       <Router>
         <Route path="/" component={Main} />
