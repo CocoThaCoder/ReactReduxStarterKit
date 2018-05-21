@@ -1,12 +1,15 @@
-import actionTypes from '../actions/Types';
-import { Map } from 'immutable';
+import update from 'immutability-helper';
 
-const initialState = Map({ count: 0 });
+import actionTypes from '../actions/Types';
+
+const initialState = { count: 0 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case actionTypes.INCREMENT:
-      return state.set('count', state.get('count') + 1);
+      return update(state, {
+        count: { $set: state.count + 1 },
+      });
     default:
       return state;
   }

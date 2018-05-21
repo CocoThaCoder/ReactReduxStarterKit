@@ -12,7 +12,7 @@ class Main extends Component {
       <AppContainer>
         <Title>React Starter Kit</Title>
         <Image src="/public/images/minime.png" alt="" />
-        <Counter>{counter.get('count')}</Counter>
+        <Counter>{counter.count}</Counter>
         <Button onClick={increment}>Increment</Button>
       </AppContainer>
     );
